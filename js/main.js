@@ -16,6 +16,7 @@ searchInput.addEventListener('blur', function() {
 });
 
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
 
 window.addEventListener('scroll', _.throttle(function() {
   if(window.scrollY > 500)
@@ -24,7 +25,7 @@ window.addEventListener('scroll', _.throttle(function() {
       opacity: 0,
       display: 'none'
     });
-    gsap.to('#to-top', .2, {
+    gsap.to(toTopEl, .2, {
       x: 0,
     })
   }
@@ -34,7 +35,7 @@ window.addEventListener('scroll', _.throttle(function() {
       opacity: 1,
       display: 'block'
     });
-    gsap.to('#to-top', .2, {
+    gsap.to(toTopEl, .2, {
       x: 100,
     })
   }
@@ -42,7 +43,7 @@ window.addEventListener('scroll', _.throttle(function() {
 // _.throttle(함수, 시간) - 많은
 // gsap.to(요소, 지속시간, 옵션) - 애니메이션 동작
 
-const toTopEl = document.querySelector('#to-top');
+
 toTopEl.addEventListener('click', function() {
   gsap.to(window, .7, {
     scrollTo: 0
